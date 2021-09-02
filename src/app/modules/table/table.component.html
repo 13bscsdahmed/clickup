@@ -1,0 +1,17 @@
+<app-custom-table [mockData]="mockData" [keys]="keys">
+  <ng-template tableColumn="firstName" let-val="val">
+    {{val.firstName}}
+  </ng-template>
+
+  <ng-template tableColumn="lastName" let-val="val">
+    {{val.lastName}}
+  </ng-template>
+
+  <ng-template tableColumn="age" let-val="val">
+    {{val.age}}
+  </ng-template>
+
+  <ng-template tableColumn="height" let-val="val">
+    {{val.height}}
+  </ng-template>
+</app-custom-table>

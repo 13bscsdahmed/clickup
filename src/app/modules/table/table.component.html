@@ -1,4 +1,4 @@
-<app-custom-table [mockData]="mockData" [keys]="keys">
+<app-custom-table [mockData]="mockData" [keys]="keys" (sort)="onSort($event)">
   <ng-template tableColumn="firstName" let-val="val">
     {{val.firstName}}
   </ng-template>

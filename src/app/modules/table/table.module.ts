@@ -5,11 +5,12 @@ import { TableRoutingModule } from './table-routing.module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CustomTableComponent } from './custom-table/custom-table.component';
 import { TableColumnDirective } from './directives/table-column.directive';
+import { TableSortDirective } from './directives/table-sort.directive';
 
 
 
 @NgModule({
-  declarations: [TableComponent, CustomTableComponent, TableColumnDirective],
+  declarations: [TableComponent, CustomTableComponent, TableColumnDirective, TableSortDirective],
   imports: [
     CommonModule,
     TableRoutingModule,

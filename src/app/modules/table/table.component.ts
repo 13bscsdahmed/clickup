@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Sort } from './models/table.model';
 
 @Component({
   selector: 'app-table',
@@ -42,6 +43,10 @@ export class TableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSort(data: Sort) {
+    console.log('sort data', data);
   }
 
 

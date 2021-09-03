@@ -7,11 +7,12 @@ import { CustomTableComponent } from './components/custom-table/custom-table.com
 import { TableColumnDirective } from './directives/table-column.directive';
 import { TableSortDirective } from './directives/table-sort.directive';
 import { CustomTableCellComponent } from './components/custom-table-cell/custom-table-cell.component';
+import { TableHeaderDirective } from './directives/table-header.directive';
 
 
 
 @NgModule({
-  declarations: [TableComponent, CustomTableComponent, TableColumnDirective, TableSortDirective, CustomTableCellComponent],
+  declarations: [TableComponent, CustomTableComponent, TableColumnDirective, TableSortDirective, CustomTableCellComponent, TableHeaderDirective],
   imports: [
     CommonModule,
     TableRoutingModule,

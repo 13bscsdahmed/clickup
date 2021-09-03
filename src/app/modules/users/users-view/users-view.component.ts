@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Sort } from '../../common/elements/custom-table/models';
+import { Sort } from '@common/elements/custom-table/models';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  selector: 'app-users-view',
+  templateUrl: './users-view.component.html',
+  styleUrls: ['./users-view.component.scss']
 })
-export class TableComponent implements OnInit {
+export class UsersViewComponent implements OnInit {
+
   keys = [
     'firstName',
     'lastName',
@@ -44,10 +45,8 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   onSort(data: Sort) {
     console.log('sort data', data);
   }
-
 
 }

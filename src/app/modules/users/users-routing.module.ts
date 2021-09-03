@@ -1,17 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { appRoutes } from '../../config/app-routes.constants';
-
-import { TableComponent } from './table.component';
+import { UsersComponent } from './users.component';
+import { UsersViewComponent } from '@modules/users/users-view/users-view.component';
 
 const routes: Routes = [
   {
     // Define parent route and component
     path: '',
-    component: TableComponent,
+    component: UsersComponent,
     // Define child routes and respective components
-    children: []
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: appRoutes.users.view,
+      },
+      {
+        path: appRoutes.users.view,
+        component: UsersViewComponent
+      },
+    ]
   },
 ];
 
@@ -22,4 +31,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TableRoutingModule { }
+export class UsersRoutingModule { }

@@ -8,7 +8,8 @@ export const appRoutes = {
     note: 'note',
     history: 'history'
   },
-  table: {
-    root: 'table',
+  users: {
+    root: 'users',
+    view: 'view'
   },
 };

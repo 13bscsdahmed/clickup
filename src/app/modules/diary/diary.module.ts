@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DiaryRoutingModule } from './diary-routing.module';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 
 import { DiaryComponent } from './components/diary/diary.component';

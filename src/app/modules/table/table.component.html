@@ -1,17 +1,25 @@
-<app-custom-table [mockData]="mockData" [keys]="keys" (sort)="onSort($event)">
-  <ng-template tableColumn="firstName" let-val="val">
-    {{val.firstName}}
-  </ng-template>
+<app-custom-table [dataSource]="mockData" [keys]="keys" (sort)="onSort($event)">
+  <app-custom-table-cell>
+    <ng-template tableColumn="firstName" let-val="val">
+      {{val.firstName}}
+    </ng-template>
+  </app-custom-table-cell>
 
-  <ng-template tableColumn="lastName" let-val="val">
-    {{val.lastName}}
-  </ng-template>
+  <app-custom-table-cell>
+    <ng-template tableColumn="lastName" let-val="val">
+      {{val.lastName}}
+    </ng-template>
+  </app-custom-table-cell>
 
-  <ng-template tableColumn="age" let-val="val">
-    {{val.age}}
-  </ng-template>
+ <app-custom-table-cell>
+   <ng-template tableColumn="age" let-val="val">
+     {{val.age}}
+   </ng-template>
+ </app-custom-table-cell>
 
-  <ng-template tableColumn="height" let-val="val">
-    {{val.height}}
-  </ng-template>
+ <app-custom-table-cell>
+   <ng-template tableColumn="height" let-val="val">
+     {{val.height}}
+   </ng-template>
+ </app-custom-table-cell>
 </app-custom-table>

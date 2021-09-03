@@ -9,8 +9,8 @@ import {
   ViewChild
 } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { TableColumnDirective } from '../directives/table-column.directive';
-import { Sort } from '../models/table.model';
+import { TableColumnDirective } from '../../directives/table-column.directive';
+import { Sort } from '../../models/table.model';
 
 export interface Mock {
   firstName: string;
@@ -26,7 +26,7 @@ export interface Mock {
 })
 export class CustomTableComponent implements OnInit, AfterContentInit {
 
-  @Input() mockData: any[];
+  @Input() dataSource: any[];
   @Input() keys: string[];
   @Output() sort: EventEmitter<Sort> = new EventEmitter<Sort>();
   constructor() { }

@@ -30,6 +30,16 @@ The build artifacts will be stored in the `dist/` directory.
 Use the `--prod` flag for a production build and `--aot` flag for ahead of time compilation.
 
 
+### Starting api server
+1. Navigate to `server/` directory from project root
+   ```
+   cd server
+   ```
+2. Run the following command to start the api server
+   ```
+   json-server --watch db.json
+   ```
+
 ### Generating UI Documentation
 1. Run the following command to generate the documentation in the ui/documentation directory.
    ```

@@ -1,6 +1,8 @@
 <div cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="drop($event)">
   <div *ngFor="let key of keys" class="example-box" cdkDrag>
-    <div class="header" [attr.headerName]="key" [tableSort]="true" (sort)="sort.emit($event)">{{key}}</div>
+    <div class="header" [attr.headerName]="key" [tableSort]="true" (sort)="sort.emit($event)">
+      {{key}}
+    </div>
     <div class="item" *ngFor="let data of dataSource">
       <ng-container [ngTemplateOutlet]="getTemplate(key)" [ngTemplateOutletContext]="{val: data, key: key}"></ng-container>
     </div>

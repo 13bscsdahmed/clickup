@@ -1,5 +1,5 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, Renderer2 } from '@angular/core';
-import { Sort, SortOrder } from '../models/table.model';
+import { Sort, SortOrder } from '@common/elements/custom-table/models';
 
 @Directive({
   // tslint:disable-next-line:directive-selector

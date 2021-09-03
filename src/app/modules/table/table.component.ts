@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Sort } from './models/table.model';
+import { Sort } from '../../common/elements/custom-table/models';
 
 @Component({
   selector: 'app-table',

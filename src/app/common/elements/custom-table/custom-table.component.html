@@ -3,7 +3,7 @@
     <div class="header" [attr.headerName]="key" [tableSort]="getHeaderSort(key)" (sort)="sort.emit($event)">
       <ng-container [ngTemplateOutlet]="getHeaderTemplate(key)" [ngTemplateOutletContext]="{val: key}"></ng-container>
     </div>
-    <div class="item" *ngFor="let data of dataSource">
+    <div class="item" *ngFor="let data of dataSource; let i = index">
       <ng-container [ngTemplateOutlet]="getTemplate(key)" [ngTemplateOutletContext]="{val: data, key: key}"></ng-container>
     </div>
   </div>

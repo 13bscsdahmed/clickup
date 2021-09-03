@@ -9,16 +9,10 @@ import {
   ViewChild
 } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { TableColumnDirective } from '../../directives/table-column.directive';
-import { Sort } from '../../models/table.model';
-import { TableHeaderDirective } from '../../directives/table-header.directive';
+import { TableColumnDirective } from '@common/elements/custom-table/directives/table-column.directive';
+import { Sort } from '@common/elements/custom-table/models';
+import { TableHeaderDirective } from '@common/elements/custom-table/directives/table-header.directive';
 
-export interface Mock {
-  firstName: string;
-  lastName: string;
-  age: number;
-  height: string;
-}
 
 @Component({
   selector: 'app-custom-table',
@@ -57,10 +51,6 @@ export class CustomTableComponent implements OnInit, AfterContentInit {
     return this.headerListArray.find(data => data.headerName === key)?.template || this.defaultHeaderTemplate;
   }
   getHeaderSort(key: string): boolean {
-    if (key === 'lastName') {
-      console.log('found obj', this.headerListArray.find(data => data.headerName === key));
-      console.log('in if', this.headerListArray.find(data => data.headerName === key)?.sort);
-    }
     const template = this.headerListArray.find(data => data.headerName === key);
     return !!(template && template.sort === 'true');
   }

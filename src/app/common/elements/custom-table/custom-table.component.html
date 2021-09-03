@@ -1,0 +1,19 @@
+<div cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="drop($event)">
+  <div *ngFor="let key of keys" class="example-box" cdkDrag>
+    <div class="header" [attr.headerName]="key" [tableSort]="getHeaderSort(key)" (sort)="sort.emit($event)">
+      <ng-container [ngTemplateOutlet]="getHeaderTemplate(key)" [ngTemplateOutletContext]="{val: key}"></ng-container>
+    </div>
+    <div class="item" *ngFor="let data of dataSource; let i = index">
+      <ng-container [ngTemplateOutlet]="getTemplate(key)" [ngTemplateOutletContext]="{val: data, key: key}"></ng-container>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #defaultColumnTemplate let-val="val" let-key="key">
+  {{val[key]}}
+</ng-template>
+
+<ng-template #defaultHeaderTemplate let-val="val">
+  {{val | titlecase}}
+</ng-template>

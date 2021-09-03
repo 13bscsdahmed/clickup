@@ -19,6 +19,13 @@ const routes: Routes = [
     },
     loadChildren: () => import('./modules/diary/diary.module').then(m => m.DiaryModule)
   },
+  { // Go to diary route
+    path: appRoutes.table.root,
+    data: {
+      preload: true
+    },
+    loadChildren: () => import('./modules/table/table.module').then(m => m.TableModule)
+  },
   { // Redirect in case of wildcards / undefined routes
     path: '**',
     redirectTo: appRoutes.diary.root

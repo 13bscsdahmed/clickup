@@ -1,6 +1,6 @@
 export enum SortOrder {
-  asc = 1,
-  des = -1
+  asc = 'asc',
+  desc = 'desc'
 }
 
 export interface Sort {

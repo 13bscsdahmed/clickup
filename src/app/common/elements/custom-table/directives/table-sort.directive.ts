@@ -31,7 +31,7 @@ export class TableSortDirective {
       this.currentSortField = field;
       this.currentSortOrder = SortOrder.asc;
     } else {
-      this.currentSortOrder *= -1;
+      this.currentSortOrder = this.currentSortOrder === SortOrder.asc ? SortOrder.desc : SortOrder.asc;
     }
     this.getIcon();
 

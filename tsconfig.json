@@ -26,7 +26,7 @@
       "@shared/*": ["app/modules/shared/*"],
       "@modules/*": ["app/modules/*"],
       "@common/*": ["app/common/*"],
-      "@store/*": ["app/"]
+      "@store/*": ["app/store/*"]
     }
   },
   "angularCompilerOptions": {

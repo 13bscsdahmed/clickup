@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UsersService } from '@common/api-service/users/users.service';
-import { UsersFacade } from '@store/users';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { UsersFacade } from '@store/users';
 
 @Component({
   selector: 'app-users',
@@ -12,20 +12,23 @@ import { takeUntil } from 'rxjs/operators';
 export class UsersComponent implements OnInit, OnDestroy {
   users$ = this.usersFacade.users$;
   totalRecords$ = this.usersFacade.totalRecords$;
+  selectedOptions$ = this.usersFacade.selectedOptions$;
   destroy$ = new Subject();
   constructor(private usersService: UsersService,
               private usersFacade: UsersFacade) { }
 
   ngOnInit(): void {
-    // this.usersService.getUsers({}).subscribe((data) => {
-    //   console.log('data', data);
+    // this.usersFacade.setSelectedOptions({
+    //   page: 1,
+    //   limit: 5
     // });
     this.usersFacade.loadUsers();
+
     this.users$.pipe((takeUntil(this.destroy$))).subscribe((data) => {
       console.log('users loaded', data);
     });
-    this.totalRecords$.pipe((takeUntil(this.destroy$))).subscribe((records) => {
-      console.log('total records', records);
+    this.selectedOptions$.pipe((takeUntil(this.destroy$))).subscribe((records) => {
+      console.log('selected options', records);
     });
   }
   ngOnDestroy() {

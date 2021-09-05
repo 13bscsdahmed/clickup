@@ -44,6 +44,17 @@ export class UsersViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.mockData = [...this.mockData];
+      this.mockData.push(
+        {
+          firstName: 'New',
+          lastName: 'Data',
+          age: 22,
+          height: '5 5'
+        }
+      );
+    }, 3000);
   }
   onSort(data: Sort) {
     console.log('sort data', data);

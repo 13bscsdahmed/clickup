@@ -1,43 +1,40 @@
 <div class="container">
   <app-custom-table [dataSource]="mockData" [keys]="keys" (sort)="onSort($event)">
-    <ng-template tableHeader="firstName" sort="true" let-val="val">
-      {{val | titlecase}}123
-    </ng-template>
+    <ng-container>
+      <ng-template tableHeader="firstName" sort="true" let-val="val">
+        {{val | titlecase}}123
+      </ng-template>
 
-    <ng-template tableHeader="lastName" sort="false" let-val="val">
-      {{val | titlecase }}
-    </ng-template>
+      <ng-template tableHeader="lastName" sort="false" let-val="val">
+        {{val | titlecase }}
+      </ng-template>
 
-    <ng-template tableHeader="age" sort="true" let-val="val">
-      {{val | titlecase}}
-    </ng-template>
+      <ng-template tableHeader="age" sort="true" let-val="val">
+        {{val | titlecase}}
+      </ng-template>
 
-    <ng-template tableHeader="height" let-val="val">
-      {{val | titlecase}}
-    </ng-template>
+      <ng-template tableHeader="height" let-val="val">
+        {{val | titlecase}}
+      </ng-template>
+    </ng-container>
 
-    <app-custom-table-cell>
+    <ng-container>
       <ng-template tableColumn="firstName" let-val="val">
-        {{val.firstName}}
+        {{val.firstName}}hello
       </ng-template>
-    </app-custom-table-cell>
 
-    <app-custom-table-cell>
       <ng-template tableColumn="lastName" let-val="val">
-        {{val.lastName}}
+        {{val.lastName}}dasd
       </ng-template>
-    </app-custom-table-cell>
 
-    <app-custom-table-cell>
       <ng-template tableColumn="age" let-val="val">
         {{val.age}}
       </ng-template>
-    </app-custom-table-cell>
 
-    <app-custom-table-cell>
       <ng-template tableColumn="height" let-val="val">
         {{val.height}}
       </ng-template>
-    </app-custom-table-cell>
+    </ng-container>
+
   </app-custom-table>
 </div>

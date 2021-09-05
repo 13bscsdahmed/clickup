@@ -2,11 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
-import { FormControlValidationMsgDirective } from './directives/formcontrol-validation-msg.directive';
-import { FormSubmitValidationMsgDirective } from './directives/formsubmit-validation-msg.directive';
-
-import { ValidationMsgService } from './services/validation-msg.service';
 import { RouterModule } from '@angular/router';
 import { NumberLoopPipe } from './pipes/number-loop.pipe';
 
@@ -15,8 +10,6 @@ import { NumberLoopPipe } from './pipes/number-loop.pipe';
  */
 @NgModule({
   declarations: [
-    FormControlValidationMsgDirective,
-    FormSubmitValidationMsgDirective,
     NumberLoopPipe,
   ],
   imports: [
@@ -29,14 +22,10 @@ import { NumberLoopPipe } from './pipes/number-loop.pipe';
   exports: [
     FormsModule,
     ReactiveFormsModule,
-    FormControlValidationMsgDirective,
-    FormSubmitValidationMsgDirective,
     MDBBootstrapModule,
     NumberLoopPipe,
 
   ],
-  providers: [
-    ValidationMsgService
-  ]
+  providers: []
 })
 export class SharedModule { }

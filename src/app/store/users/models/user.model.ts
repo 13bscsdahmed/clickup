@@ -15,9 +15,3 @@ export interface SelectedOptions {
   order?: SortOrder | null;
   sort?: string | null;
 }
-
-export interface UserStateModel {
-  users: UserModel[];
-  loading: boolean;
-  selectedOptions: SelectedOptions;
-}

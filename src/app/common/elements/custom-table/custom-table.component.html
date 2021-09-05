@@ -12,6 +12,10 @@
 
 </div>
 
+<div class="paginator" *ngIf="pagination">
+  <app-pagination [totalRecords]="totalRecords" [recordsPerPage]="recordsPerPage"></app-pagination>
+</div>
+
 <ng-template #defaultColumnTemplate let-val="val" let-key="key">
   {{val[key]}}
 </ng-template>

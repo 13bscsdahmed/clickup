@@ -1,6 +1,5 @@
 :host {
   height: 100%;
-  overflow: auto;
 }
 
 .example-list {
@@ -11,7 +10,7 @@
   flex-direction: row;
   background: white;
   border-radius: 4px;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .example-box {

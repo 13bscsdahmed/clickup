@@ -7,8 +7,6 @@ import { UsersViewComponent } from './users-view/users-view.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { FEATURE_NAME, UsersEffects, UsersFacade, usersReducer } from '@store/users';
-import { PaginationModule } from '@common/elements/pagination/pagination.module';
-
 
 
 @NgModule({
@@ -17,7 +15,6 @@ import { PaginationModule } from '@common/elements/pagination/pagination.module'
     CommonModule,
     UsersRoutingModule,
     CustomTableModule,
-    PaginationModule,
     EffectsModule.forFeature([UsersEffects]),
     StoreModule.forFeature(FEATURE_NAME, usersReducer),
   ],

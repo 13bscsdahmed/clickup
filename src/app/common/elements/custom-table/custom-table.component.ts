@@ -24,6 +24,9 @@ export class CustomTableComponent implements OnInit, AfterContentInit {
 
   @Input() dataSource: any[];
   @Input() keys: string[];
+  @Input() pagination = true;
+  @Input() recordsPerPage ? = 10;
+  @Input() totalRecords?: number;
   @Output() sort: EventEmitter<Sort> = new EventEmitter<Sort>();
   constructor() { }
   @ContentChildren(TableColumnDirective) columnList: QueryList<TableColumnDirective>;

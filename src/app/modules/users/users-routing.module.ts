@@ -25,7 +25,7 @@ const routes: Routes = [
 ];
 
 /**
- * Diary module routes file
+ * Users module routes file
  */
 @NgModule({
   imports: [RouterModule.forChild(routes)],

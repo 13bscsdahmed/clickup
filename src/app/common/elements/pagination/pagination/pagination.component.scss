@@ -1,4 +1,18 @@
+@import 'src/styles/globals/colors';
+@import 'src/styles/globals/typography';
+
 .pagination-container {
-  width: 100%;
+  margin-top: $theme-unit * 4;
+  max-width: 100%;
   display: flex;
+  justify-content: center;
+  .pagination-box {
+    display: flex;
+    justify-content: center;
+    color: $white;
+    background-color: $primary;
+    padding: 0 $theme-unit * 2;
+    margin-right: $theme-unit;
+    cursor: pointer;
+  }
 }

@@ -27,6 +27,7 @@ import { PaginationModel } from '@common/elements/pagination/models/pagination.m
 export class PaginationComponent implements OnInit, OnChanges, AfterContentInit, ControlValueAccessor {
   @Input() totalRecords: number;
   @Input() recordsPerPage = 10;
+  @Input() paginationOptions = [10, 15, 20];
   totalPages: number;
   ngControl: NgControl;
   disabled = false;
@@ -75,7 +76,6 @@ export class PaginationComponent implements OnInit, OnChanges, AfterContentInit,
         this.totalPages += 1;
       }
     }
-    console.log('total pages', this.totalPages);
   }
   pageSelect(page: number) {
     this.writeValue({
@@ -92,6 +92,10 @@ export class PaginationComponent implements OnInit, OnChanges, AfterContentInit,
     if (!(this.value.page !==  1)) {
       this.pageSelect(this.value.page - 1);
     }
+  }
+  changeRecordsPerPage(value) {
+    this.recordsPerPage = value;
+    this.pageSelect(1);
   }
   public setDisabledState(disabled: boolean) {
     this.disabled = disabled;

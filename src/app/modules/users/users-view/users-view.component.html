@@ -1,4 +1,4 @@
-<div class="users-container">
+<form class="users-container" [formGroup]="form">
   <div class="wrapper">
     <app-custom-table
       [dataSource]="$any(users$ | async)"
@@ -42,7 +42,8 @@
       </ng-container>
 
     </app-custom-table>
-
-  <app-pagination [totalRecords]="totalRecords$ | async" [recordsPerPage]="(selectedOptions$ | async)?.limit || 10"></app-pagination>
+    <app-pagination
+      [totalRecords]="totalRecords$ | async" formControlName="pagination" [recordsPerPage]="(selectedOptions$ | async)?.limit || 10">
+    </app-pagination>
   </div>
-</div>
+</form>

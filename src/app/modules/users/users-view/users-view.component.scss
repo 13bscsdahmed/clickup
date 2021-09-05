@@ -1,5 +1,7 @@
+@import 'src/styles/globals/typography';
+
 .users-container {
-  padding: 20px;
+  padding: $theme-unit * 10;
   display: flex;
   justify-content: center;
   .wrapper {

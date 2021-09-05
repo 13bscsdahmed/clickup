@@ -36,7 +36,8 @@
               "node_modules/@fortawesome/fontawesome-free/scss/solid.scss",
               "node_modules/@fortawesome/fontawesome-free/scss/regular.scss",
               "node_modules/@fortawesome/fontawesome-free/scss/brands.scss",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/@ng-select/ng-select/themes/default.theme.css"
             ],
             "scripts": []
           },

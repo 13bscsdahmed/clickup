@@ -12,8 +12,8 @@ export interface SelectedOptions {
   page?: number;
   limit?: number;
   search?: string;
-  order: SortOrder | null;
-  sort: string | null;
+  order?: SortOrder | null;
+  sort?: string | null;
 }
 
 export interface UserStateModel {

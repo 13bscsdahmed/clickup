@@ -23,7 +23,10 @@ export class UsersFacade {
     this.store.dispatch(UsersActions.LoadUserDetails());
   }
   public setSelectedOptions(selectedOptions: SelectedOptions): void {
-    this.store.dispatch(UsersActions.SetSelectedOptions(selectedOptions ));
+    this.store.dispatch(UsersActions.SetSelectedOptions(selectedOptions));
+  }
+  public clearState() {
+    this.store.dispatch(UsersActions.ClearState());
   }
 
   // public clearState(): void {

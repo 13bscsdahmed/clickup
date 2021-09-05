@@ -8,6 +8,7 @@ import { FormSubmitValidationMsgDirective } from './directives/formsubmit-valida
 
 import { ValidationMsgService } from './services/validation-msg.service';
 import { RouterModule } from '@angular/router';
+import { NumberLoopPipe } from './pipes/number-loop.pipe';
 
 /**
  * Module contains all the shared dependencies
@@ -16,6 +17,7 @@ import { RouterModule } from '@angular/router';
   declarations: [
     FormControlValidationMsgDirective,
     FormSubmitValidationMsgDirective,
+    NumberLoopPipe,
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { RouterModule } from '@angular/router';
     FormControlValidationMsgDirective,
     FormSubmitValidationMsgDirective,
     MDBBootstrapModule,
-    
+    NumberLoopPipe,
+
   ],
   providers: [
     ValidationMsgService

@@ -6,6 +6,7 @@ enum ActionType {
   LOAD_USERS_DETAILS_SUCCESS = '[Users] Load user details success',
   LOAD_USERS_DETAILS_ERROR = '[Users] Load user details error',
   SET_SELECTED_OPTIONS = '[Users] Set selected options',
+  CLEAR_STATE = '[Users] Clear users state'
 }
 
 export const LoadUserDetails = createAction(
@@ -23,8 +24,11 @@ export const SetSelectedOptions = createAction(
 
 export const LoadUserDetailsError = createAction(ActionType.LOAD_USERS_DETAILS_ERROR);
 
+export const ClearState = createAction(ActionType.CLEAR_STATE);
+
 export type UsersActions = ReturnType<
   | typeof LoadUserDetails
   | typeof LoadUserDetailsSuccess
   | typeof LoadUserDetailsError
+  | typeof ClearState
   >;

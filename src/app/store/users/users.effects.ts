@@ -1,22 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
-import { UserState as State } from './users.reducer';
+import { UserState } from './users.reducer';
 import { Observable, of } from 'rxjs';
 import * as UsersActions from './users.actions';
-import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
+import { catchError, debounceTime, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
-import { getSelectedOptions } from './users.reducer';
 import { ToastrService } from 'ngx-toastr';
 import { constants } from '../../config/app.constants';
 import { SelectedOptions } from './models/user.model';
 import { UsersService } from '@common/api-service/users/users.service';
+import { selectedOptions } from '@store/users/users.selectors';
+
+const DEBOUNCE_TIME = 500;
 
 @Injectable()
 export class UsersEffects {
   constructor(
     private actions$: Actions,
-    private store$: Store<State>,
+    private store$: Store<UserState>,
     private usersService: UsersService,
     private toastrService: ToastrService
   ) {}
@@ -25,8 +27,9 @@ export class UsersEffects {
     this.actions$.pipe(
       ofType(UsersActions.LoadUserDetails),
       withLatestFrom(
-        this.store$.select(getSelectedOptions)
+        this.store$.select(selectedOptions)
       ),
+      debounceTime(DEBOUNCE_TIME),
       switchMap(([_, selectedOptions]) => this.loadUserDetails(selectedOptions))
     )
   );

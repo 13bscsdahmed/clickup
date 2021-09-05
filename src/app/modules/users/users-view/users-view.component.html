@@ -1,5 +1,5 @@
 <div class="container">
-  <app-custom-table [dataSource]="mockData" [keys]="keys" (sort)="onSort($event)">
+  <app-custom-table [dataSource]="$any(users$ | async)" [keys]="headerKeys" (sort)="onSort($event)">
     <ng-container>
       <ng-template tableHeader="firstName" sort="true" let-val="val">
         {{val | titlecase}}123
@@ -37,4 +37,6 @@
     </ng-container>
 
   </app-custom-table>
+
+  <app-pagination [totalRecords]="20" [recordsPerPage]="5"></app-pagination>
 </div>

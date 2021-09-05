@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PaginationComponent } from './pagination/pagination.component';
+import { PaginationComponent } from '@common/elements/pagination/pagination.component';
 import { SharedModule } from '@shared/shared.module';
+// import { SelectModule } from '@common/elements/select/select.module';
 
 
 
@@ -9,7 +10,8 @@ import { SharedModule } from '@shared/shared.module';
   declarations: [PaginationComponent],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    // SelectModule
   ],
   exports: [PaginationComponent]
 })

@@ -4,9 +4,6 @@
       [dataSource]="$any(users$ | async)"
       [keys]="headerKeys"
       (sort)="onSort($event)"
-      [pagination]="true"
-      [totalRecords]="totalRecords$ | async"
-      [recordsPerPage]="(selectedOptions$ | async)?.limit"
     >
       <ng-container>
         <ng-template tableHeader="firstName" sort="true" let-val="val">
@@ -46,5 +43,6 @@
 
     </app-custom-table>
 
+  <app-pagination [totalRecords]="totalRecords$ | async" [recordsPerPage]="(selectedOptions$ | async)?.limit || 10"></app-pagination>
   </div>
 </div>

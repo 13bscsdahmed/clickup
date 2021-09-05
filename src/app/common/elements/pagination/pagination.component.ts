@@ -9,6 +9,7 @@ import {
   OnInit
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
+import { PaginationModel } from '@common/elements/pagination/models/pagination.model';
 
 @Component({
   selector: 'app-pagination',
@@ -26,11 +27,10 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/for
 export class PaginationComponent implements OnInit, OnChanges, AfterContentInit, ControlValueAccessor {
   @Input() totalRecords: number;
   @Input() recordsPerPage = 10;
-  pageNumber = 1;
   totalPages: number;
   ngControl: NgControl;
   disabled = false;
-  val: number;
+  val: PaginationModel;
   constructor(private cdRef: ChangeDetectorRef, private injector: Injector) { }
 
   ngOnInit(): void {}
@@ -47,13 +47,13 @@ export class PaginationComponent implements OnInit, OnChanges, AfterContentInit,
   }
   onChange: any = () => {};
   onTouch: any = () => {};
-  set value(val: number) {
+  set value(val: PaginationModel) {
     // this value is updated by programmatic changes if( val !== undefined && this.val !== val){
     this.val = val;
     this.onChange(val);
   }
   // this method sets the value programmatically
-  writeValue(value: number) {
+  writeValue(value: PaginationModel) {
     this.value = value;
     this.val = value;
     this.cdRef.markForCheck();
@@ -76,6 +76,22 @@ export class PaginationComponent implements OnInit, OnChanges, AfterContentInit,
       }
     }
     console.log('total pages', this.totalPages);
+  }
+  pageSelect(page: number) {
+    this.writeValue({
+      page,
+      limit: this.recordsPerPage
+    });
+  }
+  incrementPage() {
+    if (!(this.value.page + 1 > this.totalPages)) {
+      this.pageSelect(this.value.page + 1);
+    }
+  }
+  decrementPage() {
+    if (!(this.value.page !==  1)) {
+      this.pageSelect(this.value.page - 1);
+    }
   }
   public setDisabledState(disabled: boolean) {
     this.disabled = disabled;

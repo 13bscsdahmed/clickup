@@ -1,0 +1,12 @@
+<div class="pagination-container" *ngIf="totalRecords >= 0">
+  <div class="flex-center">
+    <i (click)="decrementPage()" class="fas fa-angle-left"></i>
+  </div>
+  <div *ngFor="let page of totalPages | numberLoop" (click)="pageSelect(page)" class="pagination-box">
+    {{page}}
+  </div>
+  <div class="flex-center">
+    <i (click)="incrementPage()" class="fas fa-angle-right"></i>
+<!--    <app-select></app-select>-->
+  </div>
+</div>

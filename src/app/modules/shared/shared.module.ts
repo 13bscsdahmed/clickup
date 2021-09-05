@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RouterModule } from '@angular/router';
 import { NumberLoopPipe } from './pipes/number-loop.pipe';
 
@@ -16,13 +15,11 @@ import { NumberLoopPipe } from './pipes/number-loop.pipe';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MDBBootstrapModule,
     RouterModule,
   ],
   exports: [
     FormsModule,
     ReactiveFormsModule,
-    MDBBootstrapModule,
     NumberLoopPipe,
 
   ],

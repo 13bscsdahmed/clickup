@@ -6,13 +6,24 @@
   max-width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   .pagination-box {
     display: flex;
     justify-content: center;
     color: $white;
-    background-color: $primary;
+    background-color: $primary-color;
     padding: 0 $theme-unit * 2;
     margin-right: $theme-unit;
     cursor: pointer;
+  }
+  .fas {
+    color: $secondary-color;
+    cursor: pointer;
+    &.fa-angle-right {
+      margin-left: $theme-unit * 2;
+    }
+    &.fa-angle-left {
+      margin-right: $theme-unit * 3;
+    }
   }
 }

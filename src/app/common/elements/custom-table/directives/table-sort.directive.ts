@@ -58,6 +58,7 @@ export class TableSortDirective {
       this.renderer.removeChild(elem, this.sortIcon);
     }
   }
+
   getIcon() {
     this.renderer.addClass(this.sortIcon, 'fas');
     if (this.currentSortOrder === SortOrder.asc) {

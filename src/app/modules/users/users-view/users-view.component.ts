@@ -24,6 +24,9 @@ export class UsersViewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.usersFacade.loadUsers();
+
+    // this.usersFacade.setSelectedOptions({page: 2, limit: 10});
+    // this.usersFacade.loadUsers();
   }
   onSort(data: Sort) {
     console.log('sort data', data);

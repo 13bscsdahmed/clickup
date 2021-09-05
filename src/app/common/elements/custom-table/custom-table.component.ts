@@ -22,7 +22,7 @@ import { TableHeaderDirective } from '@common/elements/custom-table/directives/t
 })
 export class CustomTableComponent implements OnInit, AfterContentInit {
 
-  @Input() dataSource: unknown[];
+  @Input() dataSource: any[];
   @Input() keys: string[];
   @Output() sort: EventEmitter<Sort> = new EventEmitter<Sort>();
   constructor() { }

@@ -30,7 +30,6 @@ export class BaseHttpService {
         return {
           data: res.body,
           meta: {
-            // @ts-ignore
             totalCount: +(res?.headers?.get('X-Total-Count')) || null
           }
         };
@@ -48,7 +47,6 @@ export class BaseHttpService {
     };
     if (headersOverrides) {
       Object.keys(headersOverrides).forEach((key) => {
-        // @ts-ignore
         headersObj[key] = headersOverrides[key];
       });
     }

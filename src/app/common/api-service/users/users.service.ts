@@ -16,9 +16,7 @@ export class UsersService {
   public getUsers(params: SelectedOptions): Observable<ApiRes<UserModel[]>> {
     const options = { ...params};
     Object.keys(options).forEach((key) => {
-      // @ts-ignore
       if (options[key] === null || options[key] === '' || options[key] === undefined) {
-        // @ts-ignore
         delete options[key];
       }
     });

@@ -25,7 +25,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/for
 })
 export class PaginationComponent implements OnInit, OnChanges, AfterContentInit, ControlValueAccessor {
   @Input() totalRecords: number;
-  @Input() recordsPerPage: number;
+  @Input() recordsPerPage = 10;
   pageNumber = 1;
   totalPages: number;
   ngControl: NgControl;
@@ -39,7 +39,6 @@ export class PaginationComponent implements OnInit, OnChanges, AfterContentInit,
   }
 
   ngAfterContentInit(): void {
-    // @ts-ignore
     this.ngControl = this.injector.get(NgControl, null);
   }
 

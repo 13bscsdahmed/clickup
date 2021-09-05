@@ -38,5 +38,5 @@
 
   </app-custom-table>
 
-  <app-pagination [totalRecords]="20" [recordsPerPage]="5"></app-pagination>
+  <app-pagination [totalRecords]="totalRecords$ | async" [recordsPerPage]="(selectedOptions$ | async)?.limit"></app-pagination>
 </div>

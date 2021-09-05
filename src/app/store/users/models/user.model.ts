@@ -11,7 +11,7 @@ export interface UserModel {
 export interface SelectedOptions {
   page?: number;
   limit?: number;
-  search?: string;
+  q?: string;
   order?: SortOrder | null;
   sort?: string | null;
 }

@@ -3,7 +3,7 @@ import { Sort } from '@common/elements/custom-table/models';
 import { UsersFacade } from '@store/users';
 import { Subject } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { takeUntil } from 'rxjs/operators';
+import { debounceTime, skip, take, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-users-view',
@@ -27,22 +27,40 @@ export class UsersViewComponent implements OnInit, OnDestroy {
               private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.usersFacade.loadUsers();
-    this.form.valueChanges.pipe(takeUntil(this.destroy$)).subscribe((data) => {
-      console.log('data', data);
+    this.updateUsers({});
+    this.form.valueChanges.pipe(takeUntil(this.destroy$), debounceTime(500)).subscribe((data) => {
+      this.updateUsers(this.prepareFormParams(data));
     });
 
-    // this.usersFacade.setSelectedOptions({page: 2, limit: 10});
-    // this.usersFacade.loadUsers();
+  }
+  // mapValuesToForm
+  prepareFormParams(data){
+   return {
+      page: data.pagination.page,
+      limit: data.pagination.limit,
+      q: data.q
+    };
   }
   onSort(data: Sort) {
-    console.log('sort data', data);
+    this.updateUsers({
+      sort: data.sortField,
+      order: data.sortOrder
+    });
   }
   private createForm(): FormGroup {
     return this.formBuilder.group({
-      pagination: { page: null, limit: null },
-      years: false,
+      pagination: { page: 1, limit: 10 },
+      q: '',
     });
+  }
+  updateUsers(updatedParams) {
+    this.usersFacade.selectedOptions$.pipe(take(1)).subscribe((data) => {
+      this.usersFacade.setSelectedOptions({
+        ...data,
+        ...updatedParams
+      });
+    });
+    this.usersFacade.loadUsers();
   }
 
   ngOnDestroy() {

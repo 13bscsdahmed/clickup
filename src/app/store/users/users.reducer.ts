@@ -17,7 +17,7 @@ export const initialState: UserState = adapter.getInitialState({
   selectedOptions: {
     page: 1,
     limit: 10,
-    search: '',
+    q: '',
     order: null,
     sort: null
   },

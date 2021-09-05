@@ -4,7 +4,7 @@
       <i (click)="decrementPage()" class="fas fa-angle-left"></i>
     </div>
     <ng-container *ngFor="let page of totalPages | numberLoop">
-      <div (click)="pageSelect(page)" [class.selected]="val?.page === page" class="pagination-box">
+      <div (click)="pageSelect(page, this.recordsPerPage)" [class.selected]="val?.page === page" class="pagination-box">
         {{page}}
       </div>
     </ng-container>

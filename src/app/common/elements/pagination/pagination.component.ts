@@ -77,25 +77,32 @@ export class PaginationComponent implements OnInit, OnChanges, AfterContentInit,
       }
     }
   }
-  pageSelect(page: number) {
-    this.writeValue({
-      page,
-      limit: this.recordsPerPage
-    });
+  pageSelect(page: number, limit: number) {
+    if (page !== this.val.page || this.recordsPerPage !== limit) {
+      this.writeValue({
+        page,
+        limit
+      });
+    }
+    this.recordsPerPage = limit;
   }
   incrementPage() {
-    if (!(this.value.page + 1 > this.totalPages)) {
-      this.pageSelect(this.value.page + 1);
+    if (!(this.val.page + 1 > this.totalPages)) {
+      this.pageSelect(this.val.page + 1, this.val.limit);
     }
   }
   decrementPage() {
-    if (!(this.value.page !==  1)) {
-      this.pageSelect(this.value.page - 1);
+    if (this.val.page >  1) {
+      this.pageSelect(this.val.page - 1, this.val.limit);
     }
   }
   changeRecordsPerPage(value) {
-    this.recordsPerPage = value;
-    this.pageSelect(1);
+    if (this.val?.page !== 1) {
+      this.pageSelect(1, value);
+    } else {
+      this.pageSelect(this.val?.page, value);
+    }
+
   }
   public setDisabledState(disabled: boolean) {
     this.disabled = disabled;

@@ -12,8 +12,6 @@ import { SelectedOptions } from './models/user.model';
 import { UsersService } from '@common/api-service/users/users.service';
 import { selectedOptions } from '@store/users/users.selectors';
 
-const DEBOUNCE_TIME = 500;
-
 @Injectable()
 export class UsersEffects {
   constructor(
@@ -29,7 +27,6 @@ export class UsersEffects {
       withLatestFrom(
         this.store$.select(selectedOptions)
       ),
-      debounceTime(DEBOUNCE_TIME),
       switchMap(([_, selectedOptions]) => this.loadUserDetails(selectedOptions))
     )
   );

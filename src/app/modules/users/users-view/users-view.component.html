@@ -1,5 +1,6 @@
 <form class="users-container" [formGroup]="form">
   <div class="wrapper">
+    <input formControlName="q" placeholder="Search"/>
     <app-custom-table
       [dataSource]="$any(users$ | async)"
       [keys]="headerKeys"

@@ -1,0 +1,10 @@
+@import 'typography';
+@import 'colors';
+
+input {
+  border-radius: $theme-unit * 2;
+  border: 1px solid $secondary-color;
+  margin-bottom: $theme-unit * 2;
+  width: 100%;
+  height: $theme-unit * 7;
+}

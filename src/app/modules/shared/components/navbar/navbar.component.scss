@@ -1,8 +1,19 @@
+@import 'src/styles/globals/colors';
+@import 'src/styles/globals/typography';
 #app-navbar {
+  height: 100%;
   .navbar {
-    .diary {
-      width: 35px;
-      height: 35px;
+    padding-top: $theme-unit * 4;
+    display: flex;
+    background-color: $secondary-color;
+    height: 100%;
+    span {
+      padding: $theme-unit * 6;
+      a {
+        color: white;
+        text-decoration: none;
+        margin: 0;
+      }
     }
   }
 }

@@ -1,9 +1,11 @@
 // File contains all the app constants
+import { environment } from '../../environments/environment';
+
 export const constants = {
   // Images constants
-  images: {
-    diary: 'assets/images/diary.png'
-  },
+  images: {},
+  // Define Api Base Url
+  apiBaseUrl: environment.apiUrl,
   // Toast heading types
   toast: {
     types: {

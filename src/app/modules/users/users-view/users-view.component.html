@@ -1,0 +1,55 @@
+<!--Commenting out loader since load time is very minimal-->
+<!--<app-loader *ngIf="loading$ | async"></app-loader>-->
+<form class="users-container" [formGroup]="form">
+  <h1>Users</h1>
+  <div class="wrapper">
+    <div class="input-wrapper">
+      <input formControlName="q" placeholder="Search"/>
+    </div>
+    <app-custom-table
+      [dataSource]="$any(users$ | async)"
+      [keys]="headerKeys"
+      (sort)="onSort($event)"
+    >
+      <ng-container>
+        <ng-template tableHeader="firstName" sort="true" let-val="val">
+          {{val | titlecase}}
+        </ng-template>
+
+        <ng-template tableHeader="lastName" sort="false" let-val="val">
+          {{val | titlecase }}
+        </ng-template>
+
+        <ng-template tableHeader="age" sort="true" let-val="val">
+          {{val | titlecase}}
+        </ng-template>
+
+        <ng-template tableHeader="height" sort="true" let-val="val">
+          {{val | titlecase}} (feet)
+        </ng-template>
+      </ng-container>
+
+      <ng-container>
+        <ng-template tableColumn="firstName" let-val="val">
+          {{val.firstName}}
+        </ng-template>
+
+        <ng-template tableColumn="lastName" let-val="val">
+          {{val.lastName}}
+        </ng-template>
+
+        <ng-template tableColumn="age" let-val="val">
+          {{val.age}}
+        </ng-template>
+
+        <ng-template tableColumn="height" let-val="val">
+          {{val.height | cmToFeet}}
+        </ng-template>
+      </ng-container>
+
+    </app-custom-table>
+    <app-pagination
+      [totalRecords]="totalRecords$ | async" formControlName="pagination" [recordsPerPage]="(selectedOptions$ | async)?.limit || 10">
+    </app-pagination>
+  </div>
+</form>

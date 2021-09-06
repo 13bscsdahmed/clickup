@@ -1,0 +1,19 @@
+<div class="pagination-container" *ngIf="totalRecords >= 0">
+  <div class="pagination-controls">
+    <div class="flex-center">
+      <i (click)="decrementPage()" class="fas fa-angle-left"></i>
+    </div>
+    <ng-container *ngFor="let page of totalPages | numberLoop">
+      <div (click)="pageSelect(page, this.recordsPerPage)" [class.selected]="val?.page === page" class="pagination-box">
+        {{page}}
+      </div>
+    </ng-container>
+    <div class="flex-center">
+      <i (click)="incrementPage()" class="fas fa-angle-right"></i>
+    </div>
+  </div>
+  <div class="select-dropdown">
+    <label>Per Page</label>
+    <app-select [options]="paginationOptions" (ngModelChange)="changeRecordsPerPage($event)" [(ngModel)]="paginationOptions[0]"></app-select>
+  </div>
+</div>

@@ -32,6 +32,7 @@ export class CustomTableComponent implements OnInit, AfterContentInit {
   @ViewChild('defaultHeaderTemplate', { static: true }) defaultHeaderTemplate: TemplateRef<any>;
   columnListArray: TableColumnDirective[];
   headerListArray: TableHeaderDirective[];
+  currentTemplate: TemplateRef<any>;
 
   ngOnInit(): void {
   }
@@ -44,8 +45,9 @@ export class CustomTableComponent implements OnInit, AfterContentInit {
     this.columnListArray = this.columnList.toArray();
 
   }
-  getTemplate(key: string): TemplateRef<any> {
-    return this.columnListArray.find(data => data.columnName === key)?.template || this.defaultColumnTemplate;
+  getTemplate(key: string) {
+    this.currentTemplate = this.columnListArray.find(data => data.columnName === key)?.template || this.defaultColumnTemplate;
+    return true;
   }
   getHeaderTemplate(key: string): TemplateRef<any> {
     return this.headerListArray.find(data => data.headerName === key)?.template || this.defaultHeaderTemplate;

@@ -7,28 +7,21 @@ const routes: Routes = [
   { // Redirect '' to public route
     path: '',
     pathMatch: 'full',
-    redirectTo: appRoutes.diary.root,
+    redirectTo: appRoutes.users.root,
     data : {
-      preload: false
+      preload: true
     }
   },
   { // Go to diary route
-    path: appRoutes.diary.root,
+    path: appRoutes.users.root,
     data: {
       preload: true
     },
-    loadChildren: () => import('./modules/diary/diary.module').then(m => m.DiaryModule)
-  },
-  { // Go to diary route
-    path: appRoutes.table.root,
-    data: {
-      preload: true
-    },
-    loadChildren: () => import('./modules/table/table.module').then(m => m.TableModule)
+    loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule)
   },
   { // Redirect in case of wildcards / undefined routes
     path: '**',
-    redirectTo: appRoutes.diary.root
+    redirectTo: appRoutes.users.root
   }
 ];
 

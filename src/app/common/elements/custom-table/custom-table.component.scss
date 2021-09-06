@@ -9,21 +9,22 @@
   height: $theme-unit * 9;
   display: flex;
   align-items: center;
-  //justify-content: center;
   padding-left:  $theme-unit * 3;
   font-size: $theme-unit * 4;
   font-weight: bold;
   min-width: $theme-unit * 35;
+  color: $secondary-color;
   border-bottom: 1px solid $secondary-color;
 }
 .item {
   @extend .header;
   font-weight: normal;
+  color: black;
 }
 
 .example-list {
   max-width: 100%;
-  border: solid 1px #ccc;
+  border: solid 1px $secondary-color;
   min-height: 60px;
   display: inline-flex;
   flex-direction: row;

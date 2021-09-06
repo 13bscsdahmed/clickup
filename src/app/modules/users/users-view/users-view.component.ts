@@ -3,7 +3,7 @@ import { Sort } from '@common/elements/custom-table/models';
 import { UsersFacade } from '@store/users';
 import { Subject } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { debounceTime, skip, take, takeUntil } from 'rxjs/operators';
+import { debounceTime, pairwise, skip, startWith, take, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-users-view',
@@ -28,8 +28,25 @@ export class UsersViewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.updateUsers({});
-    this.form.valueChanges.pipe(takeUntil(this.destroy$), debounceTime(500)).subscribe((data) => {
-      this.updateUsers(this.prepareFormParams(data));
+    this.form.valueChanges.pipe(takeUntil(this.destroy$), startWith(null), pairwise(), debounceTime(500)).subscribe(([prev, latest]) => {
+      if (!prev) {
+        this.updateUsers(this.prepareFormParams(latest));
+      } else {
+        // Reset pagination
+        if (prev.q !== latest.q) {
+          const resetPagination = { page: 1, limit: latest.pagination.limit };
+          this.form.patchValue({
+            pagination: resetPagination
+          }, { emitEvent: false });
+          const objectToUpdate = {
+            ...latest,
+            pagination: resetPagination
+          };
+          this.updateUsers(this.prepareFormParams(objectToUpdate));
+        } else {
+          this.updateUsers(this.prepareFormParams(latest));
+        }
+      }
     });
 
   }

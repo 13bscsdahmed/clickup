@@ -11,6 +11,18 @@
     { "id": 9, "firstName": "Hassan", "lastName": "Riaz", "age": 26, "height": 173 },
     { "id": 10, "firstName": "Christopher", "lastName": "Nolan", "age": 52, "height": 183 },
     { "id": 11, "firstName": "Brad", "lastName": "Pitt", "age": 51, "height": 173 },
-    { "id": 12, "firstName": "Tom", "lastName": "Cruise", "age": 53, "height": 164 }
+    { "id": 12, "firstName": "Tom", "lastName": "Cruise", "age": 53, "height": 164 },
+    { "id": 13, "firstName": "Daniel", "lastName": "Khan", "age": 27, "height": 180 },
+    { "id": 14, "firstName": "Akash", "lastName": "Jamal", "age": 33, "height": 177 },
+    { "id": 15, "firstName": "Waleed", "lastName": "Khalid", "age": 14, "height": 150 },
+    { "id": 16, "firstName": "Jaleed", "lastName": "Anjum", "age": 24, "height": 170 },
+    { "id": 17, "firstName": "Muneeb", "lastName": "Ali", "age": 26, "height": 141 },
+    { "id": 18, "firstName": "Hamza", "lastName": "Khan", "age": 30, "height": 122 },
+    { "id": 19, "firstName": "Omer", "lastName": "Talib", "age": 22, "height": 173 },
+    { "id": 20, "firstName": "John", "lastName": "Hopkins", "age": 59, "height": 188 },
+    { "id": 21, "firstName": "Tan", "lastName": "Diaz", "age": 33, "height": 177 },
+    { "id": 22, "firstName": "Chris", "lastName": "Pratt", "age": 38, "height": 186 },
+    { "id": 23, "firstName": "Angelina", "lastName": "Jolie", "age": 51, "height": 166 },
+    { "id": 24, "firstName": "Tom", "lastName": "Hanks", "age": 73, "height": 184 }
   ]
 }

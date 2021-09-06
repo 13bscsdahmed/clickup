@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NumberLoopPipe } from './pipes/number-loop.pipe';
+import { LoaderComponent } from './components/loader/loader.component';
 
 /**
  * Module contains all the shared dependencies
@@ -10,6 +11,7 @@ import { NumberLoopPipe } from './pipes/number-loop.pipe';
 @NgModule({
   declarations: [
     NumberLoopPipe,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -21,6 +23,7 @@ import { NumberLoopPipe } from './pipes/number-loop.pipe';
     FormsModule,
     ReactiveFormsModule,
     NumberLoopPipe,
+    LoaderComponent,
 
   ],
   providers: []

@@ -10,6 +10,7 @@ import { FEATURE_NAME, UsersEffects, UsersFacade, usersReducer } from '@store/us
 import { PaginationModule } from '@common/elements/pagination/pagination.module';
 import { SelectModule } from '@common/elements/select/select.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '@shared/shared.module';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PaginationModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModule,
     EffectsModule.forFeature([UsersEffects]),
     StoreModule.forFeature(FEATURE_NAME, usersReducer),
   ],

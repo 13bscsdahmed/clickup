@@ -3,7 +3,7 @@ import { Sort } from '@common/elements/custom-table/models';
 import { UsersFacade } from '@store/users';
 import { Subject } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { debounceTime, pairwise, skip, startWith, take, takeUntil } from 'rxjs/operators';
+import { debounceTime, pairwise, startWith, take, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-users-view',
@@ -13,6 +13,7 @@ import { debounceTime, pairwise, skip, startWith, take, takeUntil } from 'rxjs/o
 })
 export class UsersViewComponent implements OnInit, OnDestroy {
   users$ = this.usersFacade.users$;
+  loading$ = this.usersFacade.isLoading$;
   form: FormGroup = this.createForm();
   totalRecords$ = this.usersFacade.totalRecords$;
   selectedOptions$ = this.usersFacade.selectedOptions$;

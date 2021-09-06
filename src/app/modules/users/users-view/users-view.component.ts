@@ -37,7 +37,7 @@ export class UsersViewComponent implements OnInit, OnDestroy {
           const resetPagination = { page: 1, limit: latest.pagination.limit };
           this.form.patchValue({
             pagination: resetPagination
-          }, { emitEvent: false });
+          }, { emitEvent: false, onlySelf: true });
           const objectToUpdate = {
             ...latest,
             pagination: resetPagination

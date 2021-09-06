@@ -4,8 +4,12 @@
   padding: $theme-unit * 10;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   .wrapper {
     display: flex;
     flex-direction: column;
+    .input-wrapper {
+      width: 40%;
+    }
   }
 }
